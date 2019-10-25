@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <% include ./src/components/head %>
+</head>
+
+<body>
+  <% include ./src/components/header %>
+  <section class="curri">
+    <div class="title">
+      <p class="title__num">03</p>
+      <p class="title__cv">Code Village</p>
+      <h2 class="title__text">カリキュラム</h2>
+    </div>      
+    <div class="curri-description">
+      <div class="curri-description-flex">
+        <div class="box black"></div>
+        <p>・・・学習方法</p>
+      </div>
+      <div class="curri-description-flex">
+        <div class="box yellow"></div>
+        <p>・・・学習時間目安(自学習含む)</p>
+      </div>
+    </div>
+
+    <section class="curri-list">
+      <div class="curri-list-item">
+        <h3>入校前事前学習</h3>
+        <div class="curri-list-item-wrap">
+          <div class="curri-list-item-wrap-right-top">
+            <p class="method">動画学習</p>
+            <p class="time">40時間</p>
+          </div>
+          <div class="curri-list-item-wrap-left">
+            <ul>
+              <li>
+                <h4>環境構築</h4>
+                <div>
+                  <p>エディタインストール</p>
+                  <p>ブラウザインストール</p>
+                </div>
+              </li>
+              <li>
+                <h4>HTML</h4>
+                <div>
+                  <p>基本的なタグ</p>
+                  <p>セマンティックコードの理解</p>
+                  <p>HTML基本構文理解</p>    
+                </div>
+              </li>
+              <li>
+                <h4>CSS</h4>
+                <div>
+                  <p>CSS構文解説</p>
+                  <p>基本的なプロパティ</p>    
+                </div>
+              </li>
+              <li>
+                <h4>模写演習</h4>
+                <div>
+                  <p>構造の見方</p>
+                  <p>コーディング実演</p>    
+                </div>
+              </li>
+            </ul>
+          </div>
+          <pre class="curri-list-item-wrap-right">全10回の動画を視聴していただき、HTML/CSSの概観を掴みます。 
+            動画内で簡単なページを1ページハンズオンで作り上げます。
+            基礎と要点を押さえた動画で効率よく学習することで短期間でスキルを習得できます。</pre>
+        </div>
+      </div>
+
+      <div class="curri-list-item">
+        <h3>共通セクション(マークアップ初級)</h3>
+        <div class="curri-list-item-wrap">
+          <div class="curri-list-item-wrap-right-top">
+            <p class="method">講義</p>
+            <p class="time">56時間</p>
+          </div>
+          <div class="curri-list-item-wrap-left">
+            <ul>
+              <li>
+                <h4>環境構築</h4>
+                <div>
+                  <p>事前学習習熟度チェック・補完</p>
+                </div>
+              </li>
+              <li>
+                <h4>HTML</h4>
+                <div>
+                  <p>事前学習習熟度チェック・補完</p>
+                </div>
+              </li>
+              <li>
+                <h4>jQuery</h4>
+                <div>
+                  <p>使用方法解説</p>
+                  <p>ハンバーガーメニュー</p>    
+                </div>
+              </li>
+            </ul>
+          </div>
+          <pre class="curri-list-item-wrap-right">HTML/CSS/jQueyの学習を通し、基礎的な知識に触れることでWebサイトを作る為の準備をしていきます。</pre>
+        </div>
+      </div>
+
+      <div class="curri-list-item">
+        <h3>共通セクション(マークアップ中級)</h3>
+        <div class="curri-list-item-wrap">
+          <div class="curri-list-item-wrap-right-top">
+            <p class="method">講義</p>
+            <p class="time">28時間</p>
+          </div>
+          <div class="curri-list-item-wrap-left">
+            <ul>
+              <li>
+                <h4>Sass</h4>
+                <div>
+                  <p>基本機能</p>
+                  <p>変数</p>
+                  <p>関数</p>
+                </div>
+              </li>
+              <li>
+                <h4>HTML</h4>
+                <div>
+                  <p>メディアクエリ</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <pre class="curri-list-item-wrap-right">Sassやレスポンシブ対応などを習得し、より実践的なマークアップを力を要請いたします。</pre>
+        </div>
+      </div>
+      
+      <div class="curri-middle-point">
+        <h3>【習熟度チェックテストによるコース分岐】</h3>
+        <p>事前学習、共通セクションの講義を経て習熟度チェックテストを行います。
+          後半の講義では実践的なフロントエンジニアを目指す為、より難易度の高い(学習時間を要する)カリキュラムとなっており、
+          学習時間を取れていない方や、Web制作に力を入れたい方はマークアップセクションコースへと移行して頂きます。</p>
+      </div>
+
+      <div class="curri-tab-wrap">
+        <div class="curri-tab-select">
+          <p class="curri-tab-select-front">フロントエンドセクション</p>
+          <p class="curri-tab-select-mu">マークアップセクション</p>
+        </div>
+
+        <div class="curri-tab-front show">
+          <div class="curri-list-item-tab-wrap">
+            <div class="curri-list-item">
+              <h3>フロントエンド中級</h3>
+              <div class="curri-list-item-wrap">
+                <div class="curri-list-item-wrap-right-top">
+                  <p class="method">講義</p>
+                  <p class="time">28時間</p>
+                </div>
+                <div class="curri-list-item-wrap-left">
+                  <ul>
+                    <li>
+                      <h4>JavaScript</h4>
+                      <div>
+                        <p>基礎文法</p>
+                        <p>関数基礎</p>
+                        <p>DOM解説</p>
+                        <p>スライドショー他演習</p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <pre class="curri-list-item-wrap-right">JavaScriptの基礎文法、関数、各種演習や課題を取り組んだ後、おみくじやジャンケンシステムの演習を行います。</pre>
+              </div>
+            </div>
+    
+            <div class="curri-list-item">
+              <h3>フロントエンド上級</h3>
+              <div class="curri-list-item-wrap">
+                <div class="curri-list-item-wrap-right-top">
+                  <p class="method">講義</p>
+                  <p class="time">48時間</p>
+                </div>
+                <div class="curri-list-item-wrap-left">
+                  <ul>
+                    <li>
+                      <h4>yarn/webpack</h4>
+                      <div>
+                        <p>導入方法</p>
+                        <p>Styleローダー</p>
+                        <p>urlローダー</p>
+                        <p>fileローダー</p>
+                      </div>
+                    </li>
+                    <li>
+                      <h4>JavaScript</h4>
+                      <div>
+                        <p>thisの挙動</p>
+                        <p>変数の巻き上げ</p>
+                        <p>イベントハブリング</p>
+                        <p>スライドショーの作成他</p>
+                      </div>
+                    </li>
+                    <li>
+                      <h4>Git/GitHub</h4>
+                      <div>
+                        <p>ブランチ</p>
+                        <p>基本コマンド</p>
+                        <p>コンフリクト解消</p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <pre class="curri-list-item-wrap-right">JavaScriptをより発展させ、より高度な文法を習得し、スライドショーなどを作成します。 
+                  同時にフロントエンド開発に必要な各種ツールの導入・使用方法の習得を行います。</pre>
+              </div>
+            </div>
+    
+            <div class="curri-list-item">
+              <h3>実践開発講座</h3>
+              <div class="curri-list-item-wrap">
+                <div class="curri-list-item-wrap-right-top">
+                  <p class="method">講義</p>
+                  <p class="time">56時間</p>
+                </div>
+                <div class="curri-list-item-wrap-left">
+                  <ul>
+                    <li>
+                      <h4>チーム開発</h4>
+                      <div>
+                        <p>総まとめ</p>
+                        <p>チーム開発演習</p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <pre class="curri-list-item-wrap-right">実際の開発に必要な技術やツール、設計の考え方、チーム開発の手法を学びます。 
+                  今まで以上に課題の量が多く、さらにそれをチームで進めるのでチーム単位で自習室などを利用してどんどん進めてください。</pre>
+              </div>
+            </div>            
+          </div>
+        </div>
+
+        <div class="curri-tab-mu">
+          <div class="curri-list-item-tab-wrap">
+            <div class="curri-list-item">
+              <h3>マークアップ演習</h3>
+              <div class="curri-list-item-wrap">
+                <div class="curri-list-item-wrap-right-top">
+                  <p class="method">講義</p>
+                  <p class="time">150時間</p>
+                </div>
+                <div class="curri-list-item-wrap-left">
+                  <ul>
+                    <li>
+                      <h4>モック模写演習</h4>
+                      <div>
+                        <p>jQuery</p>
+                        <p>各種アニメーション</p>
+                        <p>レスポンシブデザイン</p>
+                      </div>
+                    </li>
+                    <li>
+                      <h4>習得度により実施</h4>
+                      <div>
+                        <p>JavaScript</p>
+                        <p>yarn/webpack</p>
+                        <p>Git/GitHub</p>
+                      </div>
+                    </li>  
+                  </ul>
+                </div>
+                <pre class="curri-list-item-wrap-right">勉強時間の確保などの事情により、習得が思ったようにいかないことがどうしても出てきてしまいます。
+                    そうなってしまった場合、そのままでは高度な授業内容にはついていくのは難しいです。
+                    模写の演習をベースとし、より丁寧に個々にフォーカスした授業をこなし、授業内容の確実な定着を目指します。</pre>
+              </div>
+            </div>  
+          </div>   
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <section class="outer">
+    <div class="inner">
+      <div class="title">
+        <p class="title__num"><i class="fas fa-cloud-download-alt"></i></p>
+        <p class="title__cv">Code Village</p>
+        <h2 class="title__text">事前課題ダウンロード</h2>
+      </div>
+      <div class="contact_subtitle">
+        <p>以下のアンケートにご回答ください。</p>
+        <p>ご回答後、ダウンロードボタンをクリックすると、事前課題の第1回「HTML基礎」、第2回「CSS基礎」を無料でダウンロードできます。</p>
+      </div>
+
+      <form action="./download.php" class="inner" name="download" method="POST">
+        <div class="grid-wrapper">
+          <label class="column-title" for="name">お名前</label>
+          <span class="column-state state-must">必須</span>
+          <input class="column-info" type="text" placeholder="田中　太郎" name="name" id="name" />
+
+          <label class="column-title" for="name-2">お名前(フリガナ)</label>
+          <span class="column-state state-must">必須</span>
+          <input class="column-info" type="text" placeholder="タナカ　タロウ" name="name_how" />
+
+          <label class="column-title" for="email">メールアドレス</label>
+          <span class="column-state state-must">必須</span>
+          <input class="column-info" type="email" placeholder="tanakatarou@sample.com" name="email" id="email" />
+
+          <label class="column-title" for="tel">電話番号</label>
+          <span class="column-state state-must">必須</span>
+          <input class="column-info" type="tel" placeholder="xxx-xxxx-xxxx" name="phone" id="phone" />
+
+          <label class="column-title">ダウンロードの<br>目的</label>
+          <span class="column-state state-must">必須</span>
+          <select class="column-info" id="js-goal" name="opportunity" required>
+            <option value="" hidden>選択してください。</option>
+            <option value="プログラミングに興味がある">プログラミングに興味がある</option>
+            <option value="プログラミングを勉強している">プログラミングを勉強している</option>
+            <option value="教室を検討している">教室を検討している</option>
+            <option value="プログラミング学習に挫折しそう">プログラミング学習に挫折しそう</option>
+            <option value="その他">その他</option>
+          </select>
+          <textarea id="js-area" name="other" class="purpose close-area" placeholder="目的を書いてください。"></textarea>
+        </div>
+
+        <div class="outer">
+          <div class="inner">
+            <div class="privacy-policy">
+              <input type="checkbox" name="" id="privacy" />
+              <label for="privacy"><a class="privacy" href="../privacy/index.html">プライバシーボリシー</a>に同意しました</label>
+            </div>
+            <div class="submit__wrapper">
+              <a class="submit-btn" onClick="toContact()">送信</a>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+  <% include ./src/components/footer %>
+  <script>
+    var goal = document.getElementById('js-goal');
+    var op_t = document.getElementById('js-area');
+    goal.onchange = function () {
+      var selectedItem = this.options[this.selectedIndex];
+      if (selectedItem.value === "その他") {
+        op_t.classList.remove('close-area');
+      }
+      else {
+        op_t.classList.add('close-area');
+      }
+    }
+
+    function toContact() {
+      var requiredObjects = [
+        { object: document.getElementById("name"), isValid: false },
+        { object: document.getElementById("phone"), isValid: false },
+        { object: document.getElementById("email"), isValid: false },
+        { object: document.getElementById("js-goal"), isValid: false }
+      ];
+      var lastNumOfObjects = requiredObjects.length - 1;
+      for (var i = 0; i < requiredObjects.length; ++i) {
+        if (!requiredObjects[i].object.value) {
+          window.alert("「必須」項目は入力必須です。");
+          break;
+        } else if (
+          i === lastNumOfObjects &&
+          requiredObjects[i].object.value
+        ) {
+          if (document.getElementById("privacy").checked) {
+            document.download.submit();
+          } else {
+            window.alert(
+              "お問い合わせ・カウンセリング予約には、プライバシーポリシーへの同意が必要です。"
+            );
+          }
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,343 @@
+////////////////////////
+//   ファーストビュー   //
+///////////////////////
+
+@import 'header';
+
+.first-view {
+  display: flex;
+  flex-direction: column;
+  align-items: bottom;
+  margin-top: $header-pc-height;//=headerのheight 
+  // height: 675px;
+  height: calc(100vh - #{$header-pc-height} - #{$ft-fixed-height});
+  min-height: 642px;
+  @include hack(gteIE9) {
+    height: 675px;
+  }
+
+  background-image: url(../img/top.jpeg);
+  background-size: cover;
+  @include tab {
+    background-position: 24%;
+  }
+  @include sp {
+    height: calc(100vh - #{$header-sp-height});
+    margin-top: $header-sp-height;
+    // height: 622px;
+    background-image: none;
+    background-color: #222;
+    &:before {
+      display: block;
+      content: "";
+      width: 100%;
+      height: 100%;
+      background-image: url(../img/top.jpeg);
+      background-size: cover;
+      background-position: 0 50%;
+    }
+  }
+}
+
+.hdline {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.82);
+  width: 45vw;
+  min-width: 128px * 3 + 38px * 2;
+  height: 100%;
+  min-height: 90px + 24px + 74px + 24px + 69px + 38px * 2;
+  color: $fc-white;
+  padding: 90px 40px;
+  margin-left: auto;
+  // @include tab 
+  @include sp {
+    width: 100%;
+    padding-top: 38px;
+    padding-bottom: 38px;
+    height: unset;
+    margin-top: auto;
+    min-width: unset;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  &__copy {
+    font-size: 2.5vw;
+    margin-bottom: 24px;
+    span {
+      display: block;
+    font-size: 1rem;
+    color: white!important;
+    background-clip: initial;
+    -webkit-text-fill-color: initial;
+    -webkit-background-clip: initial;
+    }
+
+    @include tab {
+      font-size: 30px;
+    }
+    @include sp {
+      font-size: 22px;
+    }
+    font-weight: bold;
+    color: #FFC119;//非対応ブラウザ用
+    &__top {
+      margin-bottom: 24px;
+      @include font-grd;
+      @include hack(gteIE9) {
+        color: #FFC119;
+        background-color: rgba(0, 0, 0, 0.82);
+      }
+      @include tab {
+        margin-bottom: 0;
+      }
+      @include sp {
+        margin-bottom: 0;
+      }
+    }
+    &__btm {
+      @include font-grd;
+      @include hack(gteIE9) {
+        color: #FFC119;
+        background-color: rgba(0, 0, 0, 0.82);
+      }
+    }
+  }
+  &__li {
+    display: flex;
+    justify-content: space-between;
+    min-width: 128px * 3;
+    margin-bottom: 24px;
+    @include sp {
+      min-width: unset;
+    }
+    &__item {
+      width: 10vw;
+      height: 10vw;
+      font-size: 1.1vw;
+      min-width: 100px;
+      min-height: 100px;
+      @include sp {
+        min-width: 90px;
+        min-height: 90px;
+      }
+      text-align: center;
+      border: 2px white solid;
+      border-radius: 50%;
+      & span {
+        display: inline-block;
+        margin-top: 45%;
+        @include sp {
+          font-size: 10px;
+        }
+        //////////////////////
+        //  脳  筋  ！！！！  //
+        //////////////////////
+      }
+    }
+  }
+}
+
+@keyframes fv-btn-shadow {
+  from {
+    box-shadow: 0 0 0 -10px rgba(white, 1);
+  }
+  to {
+    box-shadow: 0 0 10px 10px rgba(white, 0);
+  }
+  
+}
+
+.hdline--main-btn--shadow {
+  @include main-btn(400px, 80px, 1em, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fv-btn-shadow 3s infinite normal ;
+  @include sp {
+    @include main-btn(100%, 69px, 1em, 0.5);
+    .sub {
+      display: none;
+    }
+  }
+  
+}
+
+
+.hdline--main-btn {
+  @include main-btn(375px, 55px);
+  transition: all ease-out 300ms;
+
+  @include sp {
+    @include main-btn(90%, 47px, 1em, 1);
+  }
+  a {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .play-icon {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 2em;
+    @include sp {
+      right: 3em;
+    }
+    &.hover {// jQで実装
+      right: 2em;
+      transition: right ease-out 300ms;
+    }
+  }
+  .sub {
+    font-size: .5em;
+  }
+  &:hover {
+    width: 100%;
+    height: 100%;
+    border-radius: 80px;
+    line-height: 76px;
+    @include sp {
+      line-height: 65px;
+    }
+    color: #80D0C7;
+    background: lighten(white, 30%);
+    border: 2px solid #80D0C7;
+  }
+}
+
+.bx-wrapper {
+  border: none;
+}
+
+.top-slide {
+  // width: 80%;
+  // transform: translateX(-40%);
+  // left: 50%;
+  
+  &-item {
+    width: 1000px;
+    // width: 100%;
+    display: flex;
+    height: 385px;
+    @include tab {
+      flex-direction: column-reverse;
+      height: 500px;
+      justify-content: flex-end;
+      .content, .img {
+        width: 100%!important;
+        height: 50%!important;
+      }
+      .content {
+        padding: 0 1em!important;
+      }
+    }
+  }
+  
+  &-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 550px;
+    @include tab {
+      height: 670px;
+    }
+    width: 100%;
+    background-color: #222222;
+  }
+  .content {
+    width: 50%;
+    background: #fff;
+    padding: 60px 30px;
+    position: relative;
+  }
+  .grd {
+    white-space: nowrap;
+    color: #000;//非対応のブラウザでの文字色を設定
+    background: linear-gradient(to top, #13547A, #80D0C7);//背景色にグラデーションを指定
+    -webkit-background-clip: text;//テキストでくり抜く
+    font-weight: bold;
+    -webkit-text-fill-color: transparent;
+    font-size: 30px;
+    @include tab {
+      font-size: 20px;
+      text-align: center;
+      margin-top: .5em;
+    }
+  }
+  .txt {
+    margin-top: 10px;
+  }
+  .img {
+    background-image: url(../img/slide.png);
+    height: 100%;
+    width: 50%;
+    background-size: cover;
+    background-position: center center;
+    background-color: #fff;
+    &.second {
+      background-image: url(../img/teacher1.jpg);
+      background-size: cover;
+      background-position: center;
+    }
+    &.third {
+      background-image: url(../img/reason1.jpeg);
+    }
+  }
+  .hdline--main-btn--shadow {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 60px;
+    @include tab {
+      bottom: 1em!important;
+      width: 95%;
+      .hdline--main-btn {
+        width: 90%;
+      }
+      .sub {
+        display: none;
+      }
+    }
+  }
+}
+
+.side {
+  @include sp {
+    display: none;
+  }
+  height: 260px;
+  width: 63px;
+  position: fixed;
+  z-index: 9999;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  .minute {
+    height: 33px;
+    border: 4px solid white;
+    color: white;
+    width: 100%;
+    font-size: 10px;
+    background-color: #7CCCC4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .apply {
+    background: $grd-tobottom;
+    height: 223px;
+    width: 100%;
+    -webkit-writing-mode: vertical-rl;
+    -ms-writing-mode: tb-rl;
+    writing-mode: vertical-rl;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    display: flex;
+  }
+}
+

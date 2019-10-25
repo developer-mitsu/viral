@@ -1,0 +1,257 @@
+
+
+///////////////////
+// 03 curriculum //
+///////////////////
+
+
+.curriculum__list {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 90px;
+  @include tab {
+    flex-direction: column;
+  }
+}
+.curriculum__item__out {
+  width: 22%;
+  min-height: 400px;
+  border-radius: 5px;
+  box-shadow: -10px 10px 15px #C1C1C1;
+  padding: 60px 25px 12%;
+  text-align: center;
+  position: relative;
+  
+
+  ul {
+    position: absolute;
+    bottom: 0;
+    text-align: left;
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: initial;
+    margin-bottom: 2em;
+    li {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.5em;
+    }
+    // span {
+    //   display: inline-block;
+    //   margin-bottom: 7px;
+    // }
+  }
+
+  // color: #13547A;
+  // 以下テキストにグラデーションを入れる方法だがブラウザによっては動かないので原因が見つかるまでは上で対応
+
+  color: #000;//非対応のブラウザでの文字色を設定
+  background: -webkit-linear-gradient(0deg, #13547A, #80D0C7);//背景色にグラデーションを指定
+  -webkit-background-clip: text;//テキストでくり抜く
+  -webkit-text-fill-color: transparent;//くり抜いた部分は背景を表示  
+  
+  @include tab {
+    width: 100%;
+    min-height: 500px;
+    box-shadow: 0px 5px 10px 0px #C1C1C1;
+    padding: 50px;
+      & + * {
+      margin-top: 54px;
+    }
+  }
+  @include sp {
+    height: auto;
+  }
+
+  .border {
+    grid-area: bd;
+    @include border-g {
+      width: 100%;
+      margin-top: 10px;
+      @include tab {
+        width: 60%;
+        margin: auto;
+      }
+    }
+  }
+
+  .triangle {
+    margin: auto;
+    width: 20px;
+    border-top: 20px solid #4A92A1;
+    border-right: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 20px solid transparent;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 1;
+  }
+
+  &-num {
+    display: flex;
+    justify-content: center;
+    line-height: 1;
+    font-size: 6rem;
+    width: 70%;
+    margin: -5px auto 40px;
+  }
+
+  &-text, h4 {
+    // background: white;
+    // -webkit-text-fill-color: #767676;
+
+    color: black !important;
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: initial;
+
+  }
+
+  &-text {
+    font-size: 12px;  
+    text-align: left; 
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: initial;
+
+    @include tab {
+      font-size: 14px;
+    }
+  }
+
+  h4 {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  .curr-img {
+    position: absolute;
+    width: 40%;
+    bottom: 10%; 
+    left: 50%;
+    transform: translateX(-50%) translateY(50%);
+    @include tab {
+      display: none;
+    }
+    img {
+      width: 50px;
+    }
+  }
+}
+
+// .curriculum__item__title {
+//   text-align: center;
+//   font-size: 1.28rem;
+//   font-weight: bold;
+//   padding: 1.39em 0;
+// }
+
+// .curriculum__item__text {
+//   margin-bottom: 2em;
+//   &:before {
+//     @include border-g;
+//     width: 84%;
+//     margin: 0 auto 2em;
+//   }
+// }
+
+// .curriculum__item__check {
+//   @include tab {
+//     display: flex;
+//     justify-content: center;
+//   }
+//   @include sp {
+//     display: block;
+//   }
+//   li{
+//     display: flex;
+//     align-items: center;
+//     line-height: 1.9em;
+//     @include tab {
+//       margin-right: 1rem;
+//     }
+//     &:before {
+//       display: inline-block;
+//       content: "";
+//       background-image: url(../img/check.png);
+//       background-size: cover;
+//       width: 1.4em;
+//       height: 1.4em;
+//       margin-right: 1em;
+//       @include tab {
+//         margin-right: 2px;
+//       }
+//     }
+//   }
+// }
+#curriculum {
+  .hdline--main-btn--shadow {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.curriculum--main-btn {
+  @include main-btn(320px, 50px);
+  margin: 0 auto;
+  @include tab {
+    width: 90%;
+    max-width: 320px;
+  }
+}
+
+.teacher {
+  .teacher-wrap {
+    display: flex;
+    @include sp {
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 100px;
+    }
+    margin-bottom:60px;
+  }
+
+  .teacher-img {
+    flex-shrink: 0;
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    background-size: cover;
+    border: rgba(224, 224, 224, 1) 1px solid;
+    &.first {
+      background-image: url(../img/teacher1.jpg);
+      background-position: center -100px;
+    }
+    &.second {
+      background-image: url(../img/teacher2.jpg);
+    }
+  }
+
+  .teacher-content {
+    padding: 1em;
+    .name {
+      font-weight: bold;
+    }
+    .role {
+
+      &::after {
+        width: 100%;
+        background: $grd-toright;
+        height: 2px;
+        content: '';
+        display: block;
+        margin: 1em 0;
+      }
+    }
+    .result {
+      margin-top: 1em;
+    }
+    img {
+      width: 100%;
+    }
+    iframe {
+      width: 100%;
+    }
+  }
+}

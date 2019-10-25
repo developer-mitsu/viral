@@ -1,0 +1,190 @@
+@mixin pc {
+    @media screen and (min-width: 981px){
+      @content
+    }
+  };
+  
+  @mixin tab {
+    @media screen and (max-width: 980px){
+      @content
+    }
+  };
+  
+  @mixin sp {
+    @media screen and (max-width: 599px){
+      @content
+    }
+  };
+$header-pc-height: 65px; 
+$header-sp-height: 49px;
+$ft-fixed-height: 56px;
+
+$grd-toright :linear-gradient(to right, #13547A ,#80D0C7);
+$grd-toleft :linear-gradient(to left, #13547A , #80D0C7);
+$grd-tobottom : linear-gradient(to bottom, #13547A , #80D0C7);
+$grd-totop : linear-gradient(to top, #13547A ,#80D0C7);
+$fc-white: #fff;
+$p-mg-b: 1.7em;
+
+$voice-img-w: 24.5vw;
+$voice-item-padtop: $voice-img-w/2;
+$voice-img-w--tab: $voice-img-w * 1.5;
+$voice-item-padtop--tab: $voice-img-w--tab/2;
+$voice-img-w--sp: 300px;
+$voice-item-padtop--sp: $voice-img-w--sp/2;
+
+
+@mixin centering-lh($height){
+  height: $height;
+  line-height: $height;
+  @content;
+}
+@mixin border-g {
+  display: block;
+  content: "";
+  width: 100%;
+  height: 5px;
+  background: $grd-toleft;
+  @content;
+}
+
+@mixin logo {
+  &:before {
+    display: inline-block;
+    margin-right: 0.25em;
+    content: ">"
+  }
+  &:after {
+    display: inline-block;
+    margin-left: 0.25em;
+    content: "<"
+  }
+}
+
+@keyframes button-idel-red {
+  0% {
+    box-shadow: 0 0  5px -10px #13547A;
+  }
+  30% {
+    box-shadow: rgba(#13547A, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 10px 10px rgba(#13547A, 0);
+  }
+}
+
+@mixin main-btn($width, $height, $font-size: 1em, $opacity: 1) {
+  position: relative;
+  color: $fc-white;
+  font-weight: bold;
+  font-size: $font-size;
+  text-align: center;
+  line-height: $height;
+  width: $width;
+  height: $height;
+  border-radius: $height / 2;
+  background: linear-gradient(to right, rgba(#13547A, $opacity),rgba(#80D0C7, $opacity));
+  animation: button-idel-red 2s  ease-in infinite normal;
+  @content;
+  &:hover {
+    color: #80D0C7;
+    background: lighten(white, 30%);
+    border: 2px solid #80D0C7;
+    transition: all ease-out 300ms;
+  }
+
+}
+
+@mixin font-grd ($color: $grd-toright){
+  background-color: $grd-toright;
+  display: inline-block;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-image: $color;
+  @content;
+}
+
+@mixin common-item {
+   box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.16);
+  &__title {
+    color: $fc-white;
+    background-color: #000;
+    padding: 1.5rem 2rem;
+    font-weight: bold;
+    text-align: center;
+    height: 8em;
+    & > *:first-child {// title直下のタグ変更対策
+      font-size: 2.3rem;
+      line-height: 1;
+      margin-bottom: 0.9rem;
+      & + * {// title直下のタグ変更対策
+        font-size: 1.1rem;
+        line-height: 1;
+      }
+    }
+  }
+  &__text {
+    padding: 3.8rem 1.4rem;
+  }
+  @content;
+}
+
+/* IEハック用mixin */
+@mixin hack($IE-ver: null) {
+  @if $IE-ver == 'lteIE8' { // IE8以下
+    @media \0screen\,screen\9 {
+      @content;
+    }
+  }
+  @else if $IE-ver == 'gteIE9' { // IE9以上
+    @media screen and (min-width:0\0) {
+      @content;
+    }
+  }
+  @else if $IE-ver == 'gteIE10' { // IE10以上
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+      @content;
+    }
+  }
+  @else if $IE-ver == 'gteIE11' { // IE11以上
+    @at-root _:-ms-fullscreen,:root & {
+      @content;
+    }
+  }
+  @else if $IE-ver == 'notIE8' { // IE8じゃないとき(他のブラウザも含める)
+    @media all and (min-width: 0) {
+      @content;
+    }
+  }
+}
+
+
+// 使い方
+//   .is-lteIE8 {
+//     @include hack(lteIE8){ /* IE8以下 */
+//       color: red;
+//     }
+//   }
+//   .is-gteIE9 {
+//     @include hack(gteIE9){ /* IE9以上 */
+//       color: red;
+//     }
+//   }
+//   .is-gteIE10 {
+//     @include hack(gteIE10){ /* IE10以上 */
+//       color: red;
+//     }
+//   }
+//   .is-gteIE11 {
+//     @include hack(gteIE11){ /* IE11以上 */
+//       color: red;
+//     }
+//   }
+//   .is-notIE8 {
+//     @include hack(notIE8){ /* IE8じゃないとき(他のブラウザも含める) */
+//       color: red;
+//     }
+//   }
+// 

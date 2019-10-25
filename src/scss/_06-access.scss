@@ -1,0 +1,108 @@
+
+///////////////////
+// 06 access     //
+///////////////////
+
+.access {
+  display: block;
+  display: flex;
+  justify-content: space-between;
+  height: 21rem;
+  
+  @include sp {
+    flex-direction: column;
+    height: auto;
+  }
+  & + * {
+    margin-top: 39px;
+  }
+}
+
+#access {
+  background-color: #FAFAFA;
+  .pc-only {
+    @include sp {
+      display: none;
+    }
+  }
+  .sp-only {
+    display: none;
+    @include sp {
+      display: block;
+    }
+  }
+}
+
+#access h3 {
+  
+  white-space: nowrap;
+  font-size: 1.8vw;
+  @include sp {
+    font-size: 15px;
+  }
+  line-height: 10px;
+  display: inline-block;
+  margin-bottom: 1em;
+  &::after {
+    height: 1em;
+    content: '';
+    width: 100%;
+    display: block;
+    background-color: orange;
+  }
+}
+
+
+.map {
+  width: 59%;
+  @include sp {
+    width: 100%;
+  }
+  iframe {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.address {
+  position: relative;
+  width: 38%;
+  @include sp {
+    width: 100%;
+  }
+  & > * + * {
+    margin-top: 1.5rem;
+  }
+}
+
+.school {
+  font-size: 1.5rem;
+  @include tab {
+    line-height: 1.5em;
+  }
+  &__br {
+    display: none;
+    @include tab {
+      display: inline;
+    }
+    @include sp {
+      display: none;
+    }
+  }
+  @include sp {
+    margin-top: 1em;
+  }
+}
+
+.address-main-btn {
+  @include main-btn(234px, 37px);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  @include sp {
+    position: static;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+

@@ -1,0 +1,26 @@
+@import "reset";
+@import "lib"; // 変数系
+@import "common"; // 共通+タイトルも
+@import "header"; // ヘッダー+ハンバーガーとか
+@import "first-view"; // ファーストビュー
+@import "00-why";
+@import "01-about"; // codevillageとは
+@import "01-point"; //ポイント
+@import "02-flow"; // 受講の流れ
+@import "02-online"; // codevillage online
+@import "02-pre"; // 事前課題
+@import "03-curriculum";
+@import "03-price"; // 受講料について
+@import "04-voice"; // 生徒の声
+@import "../../node_modules/slick-carousel/slick/slick";
+@import "slick";
+@import "05-q-a"; // 質問
+@import "06-access"; // アクセス
+@import "footer"; // フッター
+
+// @import "/slick/slick.css";
+
+/////////////////////////////////////////////
+// importの順番変えると多分優先順位が爆裂するので //
+// 気をつけてください。　　　　　　　　　　　　　  //
+/////////////////////////////////////////////

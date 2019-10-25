@@ -1,0 +1,59 @@
+/////////////
+//  point  //
+/////////////
+
+.point {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  @include tab {
+    flex-direction: column;
+  }
+}
+.point__item {
+  width: 30%;
+  padding: 1em;
+  @include tab {
+    width: 100%;
+    text-align: center;
+    & + * {
+      margin-top: 54px;
+    }
+  }
+}
+.point__icon {
+  width: 60%;
+  margin: 0 auto 32px;
+  text-align: center;
+  @include tab {
+    width: 20%;
+  }
+  @include sp {
+    width: 40%;
+  }
+  & > img {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+  }
+}
+
+.point__hd {
+  text-align: center;
+  margin-bottom: 32px;
+  &__num {
+     font-family: "ヒラギノ角ゴシック";
+     font-size: 24px;
+     font-weight: bold;
+     margin-bottom: 9px;
+     line-height: 1;
+  }
+  &__title {
+    font-family: "ヒラギノ角ゴシック W6";
+  }
+}
+
+.point__item--dark {
+  background-color: #FAFAFA;
+
+}

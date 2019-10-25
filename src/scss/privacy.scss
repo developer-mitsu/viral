@@ -1,0 +1,51 @@
+@import "reset";
+@import "lib"; // 変数系
+@import "common"; // 共通+タイトルも
+@import "header"; // ヘッダー+ハンバーガーとか
+@import "footer"; // フッター
+
+
+.SCT {
+    .title {
+        grid-template-areas: 
+        "cv cv"
+        "text text"
+        "bd bd";
+        &__text {
+            margin-top: 10px;
+        }
+    }
+    &.outer {
+        @include sp {
+            margin-top: 70px;
+        }
+    }
+}
+
+.SCT__item {
+    // text-align: center; 🤔??
+    padding: 2.5rem 5px;
+    &:nth-child(even) {
+        background-color: #FAFAFA;
+    }
+    &__head {
+        $fs: 1.7rem;
+        font-size: $fs;
+        &:before {
+            display: inline-block;
+            content: "";
+            width: 5px;
+            height: $fs;
+            background: $grd-totop;
+            vertical-align: bottom;
+            margin-right: 0.7rem;
+        }
+        @include sp {
+            $fs: 1.4rem;
+        }
+        & + * {
+            color: #222;
+            margin-top: 1rem;
+        }
+    }
+}

@@ -1,0 +1,64 @@
+
+///////////////
+//02 pre-cha //
+///////////////
+.pre-cha {
+  background-image: url(../img/code.png);
+  background-size: cover;
+  background-position: center;
+  &--filter {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to left, rgba(#FF006B, 1), rgba(#FFCA16, 1));
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+}
+
+.pre-cha-flex {
+  display: flex;
+  justify-content: space-between;
+  @include tab {
+    flex-direction: column;
+  }
+}
+
+.pre-movie {
+  width: 46%;
+    iframe {
+    width: 100%;
+    height: 100%;
+  }
+  @include tab {
+    width: 100%;
+    height : 263px;
+    margin-bottom: 53px;
+  }
+}
+
+.pre-cha__text {
+  width: 50%;
+  color: $fc-white;
+  @include tab {
+    width: 100%;
+  }
+}
+
+.pre-cha__text__hd {
+  line-height: 1;
+  border-bottom: 1px solid #fff;
+  padding-bottom: 1.4rem;
+  margin-bottom: 1.4rem;
+  *:first-child {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+}
+
+.pre-cha-btn {
+  width: 100%;
+  text-align: center;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  @include centering-lh(70px);
+}

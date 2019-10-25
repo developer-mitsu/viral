@@ -1,0 +1,217 @@
+////////////////
+//   header   //
+////////////////
+@import "lib"; //メディアクエリ
+
+header {
+  background-color: #222;
+  color: $fc-white;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100000;
+  transition: 0.5s;
+  height: $header-pc-height;
+  @include sp {
+    height: $header-sp-height;
+  }
+}
+header.active {
+  transform: translateY(-100%);
+}
+header::after {
+  @include border-g;
+}
+
+.hd-wrap {
+  display: grid;
+  grid-template-areas: 
+    "logo nav btn";
+  grid-template-columns: 42% 41% 1fr;
+  align-items: center;
+  padding: 0 2%;
+  height: 60px; //=first-viewのmargin-top
+  @include hack(gteIE11) {
+    line-height: 60px;
+  }
+  @include tab {
+    padding: 0 15px;
+    grid-template-areas: "logo btn hum";
+    grid-template-columns: 1fr 150px 52px;
+    @include hack(gteIE9) {
+      display: flex;
+    }
+  }
+  @include sp {
+    height: 44px;
+    @include hack(gteIE9) {
+      line-height: 44px;
+    }
+  }
+}
+
+.hd-logo {
+  line-height: 1em;
+  grid-area: logo;
+  width: 200px;
+  height: 60px;
+  @include sp {
+    width: 100px;
+    height: 44px;
+  }
+  // @include logo;
+  @include hack(gteIE9) {
+    text-align: left;
+  }
+  a {
+    display: inline-block;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    
+
+    overflow: hidden;
+    img {
+      width: 100%;
+      transform: translateY(-26%);
+      @include sp {
+        transform: translateY(-15%);
+      }
+    }
+  }
+}
+
+.hd-nav {
+  grid-area: nav;
+  &__item {
+    display: inline-block;
+    margin-right: 3%;
+  }
+  @include tab {
+    display: none;
+  }
+}
+
+.hd--main-btn {
+  grid-area: btn;
+  justify-self: end;
+  @include hack(gteIE9) {
+    @include pc {
+      margin-top: 12px;
+    }
+  }
+  @include main-btn(100%, 36px) {
+    max-width: 226px;
+  }
+  @include tab {
+    border-radius: 0;
+    @include centering-lh(60px);
+  }
+  @include sp {
+    @include centering-lh(44px);
+  }
+}
+
+#hum-bar {
+  display: none;
+}
+@include pc {
+  #hd-nav--sp {
+    display: none;
+    @include hack(gteIE9) {
+      width: 52px;
+    }
+  }
+}
+///////////////////////////
+// ハンバーガー(sp,tab用) ///
+///////////////////////////
+@include tab {
+  #hd-nav {
+    display: none;
+  }
+
+  .hd-logo {
+    a {
+      height: 44px;
+      line-height: 44px;
+    }
+  }
+
+  #hd-nav--sp.menu-active {
+    top: 0;
+    transform: translateY(0);
+    -webkit-transform: translateY(0); //chrome,safari
+  }
+
+  #hd-nav--sp {
+    position: absolute;
+    top: 100vh;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 100px 0 20%;
+    background-color: #222;
+    width: 100%;
+    height: 100vh;
+    font-size: 1.5rem;
+    transform: translateY(100%);
+    -webkit-transform: translateY(100%); //chrome,safari
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out; //chrome,safari
+  }
+  .hd-nav__item--sp {
+    text-align: center;
+    & + * {
+      margin-top: 2em;
+    }
+  }
+  .hd-icon--sp {
+    text-align: center;
+    & > * + * {
+      margin-left: 1rem;
+    }
+  }
+
+  #hum-bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    grid-area: hum;
+    text-align: center;
+    height: 44px - 11px * 2;
+    // headerのheight - 上下padding
+    margin-left: 10px;
+    cursor: pointer;
+    .bar {
+      display: inline-block;
+      background-color: white;
+      width: 28px;
+      height: 1px;
+    }
+    #bar2 {
+      width: 40px;
+    }
+    #bar1,
+    #bar2,
+    #bar3 {
+      transition: all 0.5s ease-in-out;
+    }
+    #bar1.hum-clicked {
+      transform: rotateZ(-315deg) translateX(8px) translateY(-9px);
+      transform-origin: top left;
+      width: 32px;
+    }
+    #bar2.hum-clicked {
+      transform: rotateZ(315deg) translateX(5px) translateY(4px);
+      width: 32px;
+    }
+    #bar3.hum-clicked {
+      transform: rotateZ(-675deg);
+      transform-origin: bottom right;
+      opacity: 0;
+    }
+  }
+}

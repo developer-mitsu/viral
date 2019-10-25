@@ -1,0 +1,163 @@
+/////////////
+//  about  //
+/////////////
+
+.about__intro {
+  text-align: center;  
+  & .fw-bold {
+    $fs: 1.5em;
+    font-size: $fs;
+    font-weight: bold;
+    margin-bottom: ($p-mg-b / $fs);
+  }
+}
+.grd-text {
+  
+  color: black; 
+  background: $grd-tobottom;//背景色にグラデーションを指定
+  background-clip: text;//テキストでくり抜く
+  -webkit-text-fill-color: transparent;//くり抜いた部分は背景を表示
+}
+#about {
+  background-color: rgba(250, 250, 250, 1);
+  h3 {
+    margin-bottom: 2em;
+    text-align: center;
+    font-size: 30px;
+    @include sp {
+      font-size: 20px;
+    }
+  }
+
+  .hdline--main-btn--shadow {
+    transform: translateX(-50%);
+    position: relative;
+    left: 50%;
+  }
+  
+  .subtitle {
+    text-align: center;
+    width: 90%;
+    margin: 0 auto 105px;
+  }
+  .about-content {
+    &__wrapper {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 80px;
+      @include sp {
+        flex-direction: column;
+
+      }
+    }
+    &__content {
+      width: 30%;
+      @include sp {
+        width: 100%;
+        margin-bottom: 2em;
+      }
+      img {
+        width: 100%;
+      }
+      h4 {
+        border-bottom: 2px solid #707070;
+        padding-bottom: 20px;
+        margin: 2em 0;
+        font-size: 20px;
+        box-sizing: content-box;
+        height: 50px;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.reason-container {
+  .reason-heading {
+    background: $grd-toright;
+    display: inline-block;
+    width: 153px;
+    height: 43px;
+    line-height: 43px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+  }
+  .reason-content {
+    display: flex;
+    align-items: flex-start;
+    @include sp {
+      flex-direction: column;
+      .img {
+        width: 100%!important;
+        height: 300px;
+      }
+      .reason-desc {
+        width: 100%!important;
+      }
+    }
+    .img {
+      align-self: stretch;
+      background-size: cover;
+      width: 50%;
+      background-position: center;
+      &.first {
+        background-image: url(../img/reason1.jpeg);
+        
+      }
+      &.second {
+        background-image: url(../img/reason2.jpeg);
+      }
+      &.third {
+        display: flex;
+        .left {
+          background-image: url(../img/teacher1.jpg);
+          width: 50%;
+          background-position: center;
+          background-size: cover;
+        }
+
+        .right {
+          background-image: url(../img/teacher2.jpg);
+          width: 50%;
+          background-position: center;
+          background-size: cover;
+        }
+      }
+    }
+    &-wrap {
+      margin-bottom: 50px;
+    }
+    .reason-desc {
+      min-height: 250px;
+      padding: 1em;
+      display: flex;
+      justify-content: space-around;
+      flex-direction: column;
+      background-color: #fff;
+      
+      width: 50%;
+      &__heading {
+        font-size: 25px;
+        @include sp {
+          font-size: 18px;
+        }
+        line-height: 1.2;
+      }
+      .border {
+        display: inline-block;
+        align-self: flex-start;
+        &::after {
+          border-bottom: 10px solid rgba(178, 53, 53, 0.59);
+          display: block;
+          transform: translateY(-150%);
+          height: 10px;
+          width: 100%;
+          content: "";
+        }
+      }
+    }
+  }
+}
+
+// mg-bはcommonに入ってます

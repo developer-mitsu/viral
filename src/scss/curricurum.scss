@@ -1,0 +1,457 @@
+@import "reset"; //リセット
+@import "lib"; //変数とか
+@import "common"; //共通系
+@import "header"; //ヘッダー
+@import "footer"; //フッター
+
+// 基本フォントカラー
+$base-fc: #000;
+// 基本フォントサイズ
+$base-fsz: 15px;
+// 基本行間
+$base-line-height: 1.6em;
+// 基本全体余白
+$sec-padding: 150px 15%;
+$sec-padding-sp: 100px 8%;
+
+// カリキュラム刷新用の色
+// 基本色
+$curri-main-bgc: #f7f7f7;
+// 見出しの背景色
+$curri-heading-bgc: #ffa924;
+
+$tab: 968px;
+$sp: 600px;
+
+
+@mixin tab {
+  @media (max-width: ($tab)) {
+    @content;
+  }
+}
+@mixin sp {
+  @media (max-width: ($sp)) {
+    @content;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: $base-fc;
+  font-size: $base-fsz;
+  line-height: $base-line-height;
+  width: 100%;
+}
+
+// section共通部分
+.curri,
+.contact {
+  padding: $sec-padding;
+  padding-bottom: 0;
+  @include tab {
+    padding: $sec-padding-sp;
+    padding-bottom: 0;
+  }
+  &__title {
+    text-align: center;
+    p {
+      font-size: 14px;
+      font-weight: bold;
+    }
+    p::after {
+      display: block;
+      border-bottom: 2px solid $base-fc;
+      content: "";
+      margin: 15px auto 25px auto;
+      padding: 0;
+      width: 50px;
+    }
+    h2 {
+      font-size: 30px;
+      margin-bottom: 50px;
+      @include tab {
+        font-size: 25px;
+      }
+    }
+  }
+  &__description {
+    text-align: center;
+  }
+}
+
+////////////////////////
+//  カリキュラム表の見方 //
+///////////////////////
+
+.curri-description {
+  margin-bottom: 40px;
+  &-flex {
+    display: flex;
+    justify-content: left;
+    .box {
+      height: 20px;
+      width: 80px;
+    }
+    .black {
+      background-color: #000000;
+    }
+    .yellow {
+      background-color: $curri-heading-bgc;
+    }    
+  }
+}
+
+////////////////////////
+//       一覧表示      //
+///////////////////////
+.curri-list {
+  &-item {
+    & + & {
+      margin-top: 60px;
+    }
+    h3 {
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      &::before {
+        width: 4px;
+        height: 30px;
+        margin-right: 10px; 
+        content: '';
+        display: inline-block;
+        background: linear-gradient(to bottom, #FF016A,  #FFC119);
+      }
+    }
+    &-wrap {
+      width: 100%;
+      padding: 70px 5%;
+      display: flex;
+      justify-content: space-between;
+      background-color: $curri-main-bgc;
+      position: relative;
+      @include tab {
+        flex-wrap: wrap;
+        padding: 90px 9% 60px;
+      }
+      @include sp {
+        box-shadow: 0 5px 5px 0 rgba(247, 247, 247, 0.8);
+      }
+      &-right-top {
+        position: absolute;
+        top: 0;
+        right: 0;
+        color: white;
+        display: flex;
+        @include sp {
+          left: 0;
+        }
+        p {
+          padding: 10px 0;
+          width: 125px;
+          text-align: center;
+        }
+        .method {
+          background-color: black;
+        }
+        .time {
+          background-color: $curri-heading-bgc;
+        }
+      }
+      &-left {
+        min-width: 50%;
+        align-self: center;
+        li {
+          display: flex;
+          justify-content: left;
+          align-items: center;
+          margin-bottom: 10px;
+          @include tab {
+            margin-bottom: 30px;   
+          }
+          @include sp {
+            flex-wrap: wrap;      
+          }
+          h4 {
+            color: white;
+            background-color: $curri-heading-bgc;
+            padding: 10px 3%;
+            flex-shrink: 0;
+            width: 147px;
+            text-align: center;
+            margin-right: 20px;
+            @include sp {              
+              margin-right: 100%;
+              margin-bottom: 20px;
+              font-size: 12px;
+              width: 120px;
+            }
+          }
+          p {
+            font-size: 12px;
+          }
+          div {
+            display: flex;
+            flex-wrap: wrap;
+            & > *:not(:last-child) {
+              margin-right: 10px;
+            }
+          }
+        }  
+      }
+      &-right {
+        min-width: 50%;
+        font-size: 14px;
+        white-space: pre-line;
+        padding: 10px 0 0 5%; 
+        border-left: 1px dotted #707070;
+        @include tab {
+          border-left: none;
+          border-top: 1px dotted #707070;
+          padding: 30px 0 0;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+////////////////////////
+//   クラス分けの説明   //
+///////////////////////
+
+.curri-middle-point {
+  color: white;
+  background-color: black;
+  padding: 30px 17%;
+  margin-top: 80px;
+  text-align: center;
+  h3 {
+    margin-bottom: 35px;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  p {
+    text-align: left;
+  }
+}
+
+//////////////////////////
+//カリキュラムのタブメニュー//
+/////////////////////////
+.curri-tab-wrap {
+  margin-top: 80px;
+}
+
+.curri-tab-select {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  p {
+    width: 48%;
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: none;
+    cursor: pointer;
+    border-radius: 15px 15px 0 0;
+    font-weight: bold;
+    font-size: 18px;
+    @include sp() {
+      font-size: 12px;
+      padding: 15px 0;
+    }
+  }
+  &-front {
+    background-color: $curri-heading-bgc;
+    color: white;
+  }
+  &-mu {
+    background-color: $curri-main-bgc;
+  }
+}
+
+.curri-tab-front, .curri-tab-mu {
+    display: none;
+    width: 100%;
+}
+
+@mixin inner-curri-tab($bg_color, $f_color) {
+  padding: 67px 2% 10px;
+    background-color: $bg_color;
+    h3 {
+      color: $f_color;
+    }
+}
+
+.curri-tab-front {
+  background-color: $curri-main-bgc;
+  .curri-list-item-tab-wrap {
+    @include inner-curri-tab($curri-heading-bgc, white)
+  }
+  .time {
+    background-color: rgb(229, 226, 226);
+    color: black;
+  }
+}
+.curri-tab-mu {
+  .curri-list-item-tab-wrap {
+    @include inner-curri-tab($curri-main-bgc, black)
+  }
+  .curri-list-item-wrap {
+    background-color: white;
+  }
+}
+
+.curri-tab-front.show {
+  display: block;
+}
+.curri-tab-mu.show {
+  display: block;
+}
+
+// .curri-wrapper {
+//   background-color: #fff;
+//   padding: 5%;
+//   @include tab {
+//     padding: 10%;
+//   }
+// }
+
+// カリキュラム共通部分↓
+// .curri-list {
+//   // ヘッダー部分
+//   &-item {
+//     box-shadow: 0 0 37px gray;
+//     // background-color: #F8FCFF;
+//     background-image: $grd-totop;
+//     width: 100%;
+//     padding: 1%;
+//     box-sizing: border-box;
+//     margin-bottom: 100px;
+//     &:first-child {
+//       margin-top: 100px;
+//     }
+//     @include tab {
+//       padding: 2%;
+//     }
+//     &__introduction {
+//       font-size: $base-fsz;
+//       line-height: $base-line-height;
+//       color: black;
+//       padding-bottom: 50px;
+//     }
+//     &__head {
+//       display: flex;
+//       justify-content: space-between;
+//       border-bottom: 1px solid #000;
+//       padding-bottom: 15px;
+//       margin-bottom: 50px;
+//       @include tab {
+//         flex-direction: column;
+//         align-items: center;
+//       }
+//       &__title {
+//         font-size: 30px;
+//         @include sp {
+//           font-size: 20px;
+//         }
+//       }
+//       &__period {
+//         font-size: $base-fsz;
+//         color: #000;
+//         span {
+//           margin-left: 20px;
+//           @include sp {
+//             margin-left: 10px;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+// .curri-list-item__description {
+//   // メイン部分
+//   font-size: $base-fsz;
+//   color: #000;
+//   &__title {
+//     color: #00578d;
+//     font-weight: bold;
+//     &:not(:first-child) {
+//       margin-top: 3%;
+//     }
+//   }
+//   &__title:before {
+//     display: inline-block;
+//     content: "";
+//     background-image: url(../img/check.png);
+//     background-size: cover;
+//     width: 22px;
+//     height: 22px;
+//     vertical-align: text-top;
+//     margin-right: 5px;
+//     margin-bottom: 5px;
+//   }
+//   &__text {
+//     line-height: $base-line-height;
+//   }
+// }
+// // カリキュラム共通部分↑
+
+// // 初級flex&align-item用
+// .curri-beginner-flex {
+//   display: flex;
+//   height: auto;
+//   align-items: center;
+//   @include tab {
+//     align-items: end;
+//     &:not(:last-child) {
+//       margin-bottom: 10px;
+//     }
+//   }
+//   & > img {
+//     margin: 2% 5% 2% 0;
+//     flex: none;
+//     height: 20%;
+//     object-fit: contain;
+//     width: 10%;
+//     @include tab {
+//       width: 15%;
+//     }
+//     @include sp {
+//       width: 20%;
+//     }
+//   }
+//   &__text {
+//     display: block;
+//   }
+// }
+
+// // 上級Git内リスト↓
+// .curri-list-item__description__text__list {
+//   list-style: none;
+//   & li {
+//     text-indent: 5%;
+//     &:before {
+//       display: inline-block;
+//       content: "";
+//       list-style: none;
+//       background-image: url(../img/check-box-mono.png);
+//       background-size: cover;
+//       width: 22px;
+//       height: 22px;
+//       vertical-align: text-top;
+//       margin-right: 5px;
+//       margin-bottom: 5px;
+//     }
+//   }
+// }
+.privacy-policy .privacy {
+    display: inline!important;
+    text-decoration: underline;
+    color: blue;
+}
+

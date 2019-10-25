@@ -1,0 +1,65 @@
+// ドットのスタイル
+$dotsHeight: 20px;
+$dotsWidth: 20px;
+
+//デフォルトのbuttonスタイルを削除
+@mixin resetButtonStyle {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.slick-list {
+  overflow: visible!important;
+}
+
+.dotsStyle {
+  content: "";
+  width: $dotsHeight;
+  height: $dotsWidth;
+  border: 1px solid #000;
+  border-radius: 50%;
+}
+
+.slick-dots {
+  margin: 0;
+  text-align: center;
+  li{
+    display: inline-block;
+    position: relative;
+    margin: 0 10px;
+    width: $dotsHeight;
+    height: $dotsWidth;
+    button{
+      @include resetButtonStyle();
+      text-indent: -9999px;//デフォルとの文字を埋め込む
+      &:before{
+        @extend .dotsStyle;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+    }
+    &.slick-active{
+      button:before{
+        background-color: #000;
+      }
+    }
+  }
+}
+
+.slider-prev, .slider-next {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  color: tomato;
+  font-size: 4rem;
+}

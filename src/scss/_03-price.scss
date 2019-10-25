@@ -1,0 +1,129 @@
+///////////////////
+// 03 price      //
+///////////////////
+
+.price {
+  background-image: url(../img/price.jpeg);
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  padding: 67px 0 100px;
+  &__wrap {
+    background-color: rgba(#fff, 0.76);
+    border-radius: 5px;
+    width: 40%;
+    min-width: 300px;
+    margin: 0 auto;
+    padding: 67px 0;
+    .hdline--main-btn--shadow {
+      left: 50%;
+      transform: translateX(-50%);
+      @include tab {
+        .sub {
+          display: none;
+        }
+        width: 80%;
+        .hdline--main-btn {
+          width: 80%;
+        }
+        
+      }
+      @include sp {
+        .play-icon {
+          display: none;
+        }
+      }
+    }
+    h4 {
+      font-weight: bold;
+      &::before {
+        content: '＼';
+        margin-right: .5em;
+      }
+      &::after {
+        content: '／';
+        margin-left: .5em;
+      }
+      @include sp {
+        br {
+          display: block!important;
+        }
+        &::after, &::before {
+          display: none;
+        }
+      }
+    }
+    .line {
+      width: 50%;
+      border-bottom: 2px dotted black;
+      display: inline-block;
+      margin: 1em auto 1em;
+      
+    }
+    small {
+      font-size: 0.9rem;
+    }
+    // & * + * {
+    //   margin-top: 0.4rem;
+    // }
+  }
+}
+
+.price__hd {
+  color: white;
+  // text-align: center;
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  &:after {
+    display: block;
+    content: "";
+    border-top: 1px solid white;
+    margin: 1em auto;
+    width: 86%;
+  }
+}
+
+.price-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2em;
+  @include tab {
+    flex-direction: column;
+  }
+  .arrow {
+    margin: 0 1em;
+    transform: scaleX(2);
+    @include tab {
+      display: none;
+    }
+  }
+  .arrow-sp {
+    display: none;
+    @include tab {
+      display: block;
+    }
+  }
+}
+
+.price__price, .price__tax {
+  display: inline-block;
+}
+
+.price__before {
+  text-decoration: line-through red;
+}
+
+.price__price {
+  font-family: "ヒラギノ角ゴシック";
+  font-size: 2.4rem;
+  font-weight: bold;
+}
+.price__tax {
+  margin-top: 0.5em;
+  font-size: 1rem;
+  font-weight: normal;
+  
+}
+

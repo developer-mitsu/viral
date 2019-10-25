@@ -1,0 +1,51 @@
+.why-content {
+    &__container {
+        
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-bottom: 2em;
+        align-items: center;
+        img {
+            width: 48%;
+        }
+
+        @include tab {
+            flex-direction: column;
+            width: 100%;
+            &.reverse {
+                flex-direction: column-reverse;
+            }
+            img {
+                width: 95%;
+            }
+        }
+    }
+    &__desc, &__graph {
+        width: 45%;
+        @include tab {
+            width: 95%;
+        }
+
+    }
+    &__desc {
+        h3 {
+            font-size: 20px;
+            font-weight: bold;
+            border-bottom: #707070 2px solid;
+            padding-bottom: 1em;
+            margin-bottom: 1em;
+        }
+        .wrapper {
+            p {
+                margin-bottom: 1em;
+            }
+        }
+    }
+    &__graph {
+        width: 48%;
+        height: 330px;
+        background-color: gray;
+    }
+    
+}

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <% include ./src/components/head %>
+</head>
+
+<body>
+  <% include ./src/components/header %>
+  <section class="outer outer--contact">
+    <div class="inner">
+      <div class="title">
+        <p class="title__num"><i class="far fa-envelope"></i></p>
+        <p class="title__cv">Viral Camp</p>
+        <h2 class="title__text">お問い合わせはこちら</h2>
+      </div>
+      <div class="import-link inner">
+        <nav>
+          <ul>
+            <li><a href="../index.html">トップページ</a></li>
+            <li class="arrow"></li>
+            <li>お問い合わせ</li>
+          </ul>
+        </nav>
+      </div>
+      <div class="contact_subtitle">
+        <p>
+          お問い合わせ、無料カウンセリングをご希望の方は下記のお問い合わせフォームからご連絡してください。
+        </p>
+        <p>三営業日以内にメールもしくはお電話でご返答させて頂きます。</p>
+      </div>
+
+      <form action="./contact.php" class="inner" name="contact" method="POST">
+        <div class="grid-wrapper">
+          <label class="column-title" for="name">お名前</label>
+          <span class="column-state state-must">必須</span>
+          <input class="column-info" type="text" placeholder="田中　太郎" name="name" id="name" />
+
+          <label class="column-title" for="name-2">お名前(フリガナ)</label>
+          <span class="column-state state-must">必須</span>
+          <input class="column-info" type="text" placeholder="タナカ　タロウ" name="name_how" />
+
+          <label class="column-title" for="email">メールアドレス</label>
+          <span class="column-state state-must">必須</span>
+          <input class="column-info" type="email" placeholder="tanakatarou@sample.com" name="email" id="email" />
+
+          <label class="column-title" for="tel">電話番号</label>
+          <span class="column-state state-must">必須</span>
+          <input class="column-info" type="tel" placeholder="xxx-xxxx-xxxx" name="phone" id="phone" />
+
+          <label class="column-title" for="req">ご用件</label>
+          <span class="column-state state-must">必須</span>
+          <textarea class="column-info" type="text" placeholder="相談したい" name="content"></textarea>
+
+          <label class="column-title">第一希望日</label>
+          <span class="column-state state-must">必須</span>
+          <input class="column-info days" type="text" name="date1" id="chooseDate" />
+
+          <label class="column-title">第二希望日</label>
+          <span class="column-state state-free">任意</span>
+          <input class="column-info days" type="text" name="date2" />
+
+          <label class="column-title">第三希望日</label>
+          <span class="column-state state-free">任意</span>
+          <input class="column-info days" type="text" name="date3" />
+
+          <label class="column-title">備考・その他</label>
+          <span class="column-state state-free">任意</span>
+          <textarea class="column-info" name="free-text" cols="30" rows="10"></textarea>
+        </div>
+
+        <div class="outer">
+          <div class="inner">
+            <div class="privacy-policy">
+              <input type="checkbox" name="" id="privacy" />
+              <label for="privacy"><a class="privacy-link" href="../privacy/index.html">プライバシーポリシー</a>に同意しました</label>
+            </div>
+            <div class="submit__wrapper">
+              <a class="submit-btn" onClick="toContact()">送信</a>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+  <% include ./src/components/footer %>
+  <script>
+    function toContact() {
+      var requiredObjects = [
+        { object: document.getElementById("name"), isValid: false },
+        { object: document.getElementById("phone"), isValid: false },
+        { object: document.getElementById("email"), isValid: false },
+        { object: document.getElementById("chooseDate"), isValid: false }
+      ];
+      var lastNumOfObjects = requiredObjects.length - 1;
+      for (var i = 0; i < requiredObjects.length; ++i) {
+        if (!requiredObjects[i].object.value) {
+          window.alert("「必須」項目は入力必須です。");
+          break;
+        } else if (
+          i === lastNumOfObjects &&
+          requiredObjects[i].object.value
+        ) {
+          if (document.getElementById("privacy").checked) {
+            document.contact.submit();
+          } else {
+            window.alert(
+              "お問い合わせ・カウンセリング予約には、プライバシーポリシーへの同意が必要です。"
+            );
+          }
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>

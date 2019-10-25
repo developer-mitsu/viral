@@ -1,0 +1,31 @@
+@import "lib"; //メディアクエリ
+
+.downloading,
+.contact-sended {
+  text-align: center;
+  padding-top: 5vh;
+  margin-top: $header-pc-height;
+  @include sp {
+    padding-top: 1vh;
+    margin-top: $header-sp-height;
+  }
+  .hd--main-btn {
+    margin-top: 1em;
+    @include sp {
+      margin-top: 0.5em;
+    }
+  }
+}
+
+.php-footer {
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 0;
+  .ft-list {
+    @include sp {
+      margin-bottom: 2em;
+    }
+  }
+}

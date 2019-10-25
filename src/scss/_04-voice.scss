@@ -1,0 +1,137 @@
+
+
+///////////////////
+// 04 voice      //
+///////////////////
+
+.inner--voice {
+  overflow-x: hidden;
+  padding-bottom: 6px; // box-shadow対策
+  &:before, &:after {
+    font-size: 10em;
+    line-height: 1;
+    @include font-grd($grd-totop);
+  }
+}
+
+.voice__slide {
+  margin-top: $voice-img-w * 0.7;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  @include tab {
+    margin-top: $voice-img-w--tab * 0.7;
+  }
+  @include sp {
+    margin-top: $voice-img-w--sp * 0.6;
+  }
+  & > * + * {
+    margin-left: 20px;
+  }
+}
+
+.voice__item {
+  cursor: pointer;
+  position: relative;
+  width: 42%;
+  flex-shrink: 0;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.16);
+  padding: $voice-item-padtop 2.5vw 2.5vw;
+  opacity: 1;
+  @include tab {
+    width: 100%;
+    padding-top: $voice-item-padtop--tab;
+    padding-left: 4vw;
+    padding-right: 4vw;
+  }
+  @include sp {
+    padding-top: $voice-item-padtop--sp;
+  }
+  &__text {
+    margin-bottom: 3rem;
+  }
+  &__intro {
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: bold;
+  }
+  &__name {
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin: 1em 0 1.5em;
+    &:after {
+      @include border-g;
+      width: 8em;
+      height: 2px;
+      margin: 0.7em auto;
+    }
+  }
+  &__more {
+    text-align: right;
+    a {
+      display: inline;
+    }
+  }
+}
+
+.voice__item__img {
+  transform: translate(-50%,-50%);
+  position: absolute;
+  top: -10%;
+  left: 50%;
+  width: $voice-img-w;
+  height: $voice-img-w;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0px 3px 6px rgba(146, 37, 37, 0.3);
+  img {
+    width: 100%;
+  }
+  @include tab {
+    width: $voice-img-w--tab;
+    height: $voice-img-w--tab;
+  }
+  @include sp {
+    width: $voice-img-w--sp;
+    height: $voice-img-w--sp;    
+  }
+}
+
+// アニメーション
+.voice__item{
+  transform: scale(0.8);
+  transition: all 600ms;
+  transition-timing-function: cubic-bezier(0.76, 2.21, 0.65, 0.49);
+  &:hover {
+    transform: scale(0.9);
+  }
+}
+
+///////////////////////////////
+//＊＊＊以下slick.cssの変更＊＊＊//
+///////////////////////////////
+// slickのcssがnode_modulesに入ってるけど
+// ignoreしてるのでimportantで対処してます
+
+.slick-list {
+  overflow: initial!important;
+}
+
+.slider-prev, .slider-next {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  color: tomato;
+  font-size: 4rem;
+}
+
+.slider-prev {
+  top: 40%;
+  left: 0;
+}
+.slider-next {
+  top: 40%;
+  right: 0;
+}

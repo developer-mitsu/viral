@@ -1,0 +1,218 @@
+@import "reset";
+@import "lib"; // 変数系
+@import "common"; // 共通+タイトルも
+@import "header"; // ヘッダー+ハンバーガーとか
+@import "footer"; // フッター
+
+// 基本フォントカラー
+$base-fc: #000;
+// 基本フォントサイズ
+$base-fsz: 15px;
+// 基本行間
+$base-line-height: 1.6em;
+// 基本全体余白
+$sec-padding: 150px 15%;
+$sec-padding-sp: 100px 8%;
+
+body {
+    font-family: 'Khula';
+
+    color: $base-fc;
+    font-size: $base-fsz;
+    line-height: $base-line-height;
+    width: 100%;
+}
+
+.wrapper {
+    overflow: hidden;
+}
+
+// after解除
+.clear-after {
+    &::after {
+        display: none!important;
+    }      
+}
+
+.sp_only {
+    display: none;
+    @include sp {
+        display: block;
+    }
+}
+
+.tab {
+    display: none;
+    @include tab {
+        display: inline-block;
+    }
+}
+
+// section共通部分
+.about, .flow, .faq ,  .access, .form,
+.curriculum, .entry, .voice, .contact, .tution, .contact-sended, .student-voice, #access, #contact, .pretask {
+    padding: $sec-padding;
+    @include tab {
+        padding: $sec-padding-sp;
+    }
+    &__title {
+        text-align: center;
+        p {
+            font-size: 14px;
+            font-weight: bold;
+        }
+        p::after {
+            display: block;
+            border-bottom: 2px solid $base-fc;
+            content: "";
+            margin: 15px auto 25px auto;
+            padding: 0;
+            width: 50px;
+        }
+        h2 {
+            font-size: 30px;
+            margin-bottom: 50px;
+            @include tab {
+                font-size: 25px;
+            }
+        }
+    }
+    &__description {
+        text-align: center;
+        
+    }
+}
+
+.student-voice {
+    text-align: center;
+
+    .question {
+        font-size: 1.1em;
+        font-weight: bold;
+        color: tomato;
+        margin: 10px 0;
+        text-align-last: left;
+        @include sp {
+            font-size: 0.8em;
+        }
+    }
+    .answer{
+        margin-bottom: 30px;
+        text-align-last: left;
+    }
+    .comment {
+        font-weight: bold;
+        font-size: 0.8em;
+        text-align-last: left;
+    }
+
+    .name {
+        margin-bottom: 50px;
+    }
+
+    img {
+        width: 70%;
+        max-height: 500px;
+        object-fit: cover;
+        object-position: center -100px;
+        font-family: 'object-fit:cover;object-position:center -100px;';
+        @include sp {
+            width: 100%;
+            height: 300px;
+            object-position: center;
+        }
+    }
+
+    .img-middle {
+        float: left;
+        width: 30%;
+        margin-right: 30px;
+        height: 300px;
+        object-position: center;
+        font-family: 'object-fit:cover;object-position:center';
+        @include sp {
+            float: none;
+            width: 100%;
+            margin-bottom: 30px;
+        }
+    }
+}
+
+.slide-item {
+    transition: all .3s linear;
+}
+.slide-item:not(.slick-center) {
+    transform: scale(0.9);
+}
+
+#pretask {
+    background-color: #fafbfc;
+
+    .flex {
+        display: flex;
+        align-items: center;
+        margin-bottom: 30px;
+        @include sp {
+            margin: none;
+            flex-direction: column;
+        }
+    }
+
+    .video {
+        display: block;
+        margin: 30px auto;
+        @include sp {
+            width: 300px;
+            height: 170px;
+        }
+    }
+
+    .pretask__description {
+        box-sizing: border-box;
+        width: 50%;
+        padding: 0 30px;
+        text-align: left;
+        @include sp {
+            width: 100%;
+            box-sizing: border-box;
+        }
+    }
+
+    .reservation-btn__wrapper {
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .reservation-btn__description {
+        width: 100%;
+    }
+}
+
+
+.downloading { 
+    margin-top: 100px;
+    min-height: 500px;
+    @include sp {
+        min-height: 300px; 
+    }
+    p {
+        text-align: center;
+        padding: 10%;
+    }
+
+    .reservation-btn__wrapper {
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+.pagenate {
+    text-align: center;
+    .page-btn {
+        display: inline-block;
+        margin: 0 1em;
+        width: auto;
+    }
+}
