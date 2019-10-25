@@ -1711,7 +1711,7 @@ header::after {
   margin-top: 65px;
   height: calc(100vh - 65px - 56px);
   min-height: 642px;
-  background-image: url(../img/top-2b0d772d29ff1982f93a4c66ca0e1ecb.jpeg);
+  background-image: url(./img/top-2b0d772d29ff1982f93a4c66ca0e1ecb.jpeg);
   background-size: cover; }
   @media screen and (min-width: 0\0) {
     .first-view {
@@ -1730,7 +1730,7 @@ header::after {
         content: "";
         width: 100%;
         height: 100%;
-        background-image: url(../img/top-2b0d772d29ff1982f93a4c66ca0e1ecb.jpeg);
+        background-image: url(./img/top-2b0d772d29ff1982f93a4c66ca0e1ecb.jpeg);
         background-size: cover;
         background-position: 0 50%; } }
 
@@ -2075,18 +2075,18 @@ header::after {
   margin-top: 10px; }
 
 .top-slide .img {
-  background-image: url(../img/slide-99041ed2540ffad5b37c3e6387f3a8d8.png);
+  background-image: url(./img/slide-99041ed2540ffad5b37c3e6387f3a8d8.png);
   height: 100%;
   width: 50%;
   background-size: cover;
   background-position: center center;
   background-color: #fff; }
   .top-slide .img.second {
-    background-image: url(../img/teacher1-b50a2766ec513c0979c6fadecd64c9f3.jpg);
+    background-image: url(./img/teacher1-b50a2766ec513c0979c6fadecd64c9f3.jpg);
     background-size: cover;
     background-position: center; }
   .top-slide .img.third {
-    background-image: url(../img/reason1-a7a0449344852ea380761052a4f44259.jpeg); }
+    background-image: url(./img/reason1-a7a0449344852ea380761052a4f44259.jpeg); }
 
 .top-slide .hdline--main-btn--shadow, .top-slide .submit__wrapper {
   position: absolute;

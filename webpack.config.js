@@ -94,7 +94,7 @@ module.exports = {
               limit: 51200,
               name: `${fileName}.[ext]`,
               outputPath: './img',
-              publicPath: '../img/'
+              publicPath: './img/'
             }
           }
         ]
